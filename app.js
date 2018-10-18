@@ -8,11 +8,9 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-var dice,activeplayer,statevar,prev1=0,prev2=0,winning_score;
+var dice,activeplayer,statevar;
 init();
 function init(){
-  winning_score=document.getElementById('win_score').value;
-  console.log(winning_score);
   statevar=true;
   activeplayer=0;
   document.querySelector('#current-1').textContent=0;
@@ -26,32 +24,23 @@ document.querySelector('.btn-new').addEventListener('click',init);
 function roll(){
   if(statevar){
     dice=Math.floor(Math.random()*6)+1;
-    dice1=Math.floor(Math.random()*6)+1;
-    document.getElementById('dice1').src='dice-'+dice+'.png';
-    document.getElementById('dice2').src='dice-'+dice1+'.png';
+    document.querySelector('.dice').src='dice-'+dice+'.png';
     var element=document.querySelector('#current-' + activeplayer);
-    if(dice!=1&&dice1!=1){
+    if(dice!=1){
       var a =element.textContent;
-      element.textContent=Number(a)+dice+dice1;
+      element.textContent=Number(a)+dice;
     }
     else{
       element.textContent=0;
       hold();
-    }
-    if((prev1==6 &&dice==6)||(prev2==6 &&dice1==6)){
-      element.textContent=0;
-      document.querySelector('#score-'+activeplayer).textContent=0;
-      hold();
-    }prev1=dice;
-    prev2=dice1;
-    }
+    }}
 }
 function hold(){
   if(statevar){
     var ele=document.querySelector('#score-' + activeplayer);
     var current=document.querySelector('#current-' + activeplayer);
     var total=Number(ele.textContent)+Number(current.textContent);
-    if(total>winning_score){
+    if(total>100){
 
       document.querySelector('#name-'+activeplayer).textContent='WINNER';
       statevar=false;
