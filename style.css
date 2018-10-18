@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    
 }
 
 .clearfix::after {
@@ -80,7 +80,7 @@ body {
     color: #EB4D4D;
     top: -7px;
     right: 10px;
-
+    
 }
 
 .player-current-box {
@@ -102,13 +102,7 @@ body {
 .player-current-score {
     font-size: 30px;
 }
-.textbox{
-  top:90px;
-  left:40%;
-  position:absolute;
-  width:200px;
-  height:50px;
-}
+
 button {
     position: absolute;
     width: 200px;
@@ -146,12 +140,7 @@ i {
 .btn-new { top: 45px;}
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
-#dice1{
-  top:160px;
-}
-#dice2{
-  top:270px;
-}
+
 .dice {
     position: absolute;
     left: 50%;
